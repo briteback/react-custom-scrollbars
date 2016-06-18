@@ -237,16 +237,16 @@ export default createClass({
         /* istanbul ignore if */
         if (typeof document === 'undefined') return;
         const { view, trackHorizontal, trackVertical, thumbHorizontal, thumbVertical } = this.refs;
-        view.addEventListener('scroll', this.handleScroll);
+        view.addEventListener('scroll', this.handleScroll, { passive: true });
         if (!getScrollbarWidth()) return;
-        trackHorizontal.addEventListener('mouseenter', this.handleTrackMouseEnter);
-        trackHorizontal.addEventListener('mouseleave', this.handleTrackMouseLeave);
-        trackHorizontal.addEventListener('mousedown', this.handleHorizontalTrackMouseDown);
-        trackVertical.addEventListener('mouseenter', this.handleTrackMouseEnter);
-        trackVertical.addEventListener('mouseleave', this.handleTrackMouseLeave);
-        trackVertical.addEventListener('mousedown', this.handleVerticalTrackMouseDown);
-        thumbHorizontal.addEventListener('mousedown', this.handleHorizontalThumbMouseDown);
-        thumbVertical.addEventListener('mousedown', this.handleVerticalThumbMouseDown);
+        trackHorizontal.addEventListener('mouseenter', this.handleTrackMouseEnter, { passive: true });
+        trackHorizontal.addEventListener('mouseleave', this.handleTrackMouseLeave, { passive: true });
+        trackHorizontal.addEventListener('mousedown', this.handleHorizontalTrackMouseDown, { passive: true });
+        trackVertical.addEventListener('mouseenter', this.handleTrackMouseEnter, { passive: true });
+        trackVertical.addEventListener('mouseleave', this.handleTrackMouseLeave, { passive: true });
+        trackVertical.addEventListener('mousedown', this.handleVerticalTrackMouseDown, { passive: true });
+        thumbHorizontal.addEventListener('mousedown', this.handleHorizontalThumbMouseDown, { passive: true });
+        thumbVertical.addEventListener('mousedown', this.handleVerticalThumbMouseDown, { passive: true });
         window.addEventListener('resize', this.handleWindowResize);
     },
 
